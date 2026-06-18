@@ -24,7 +24,7 @@ app.post('/api/airtel/payment', function (req, res) {
         return res.json({ status: 'ERROR', message: 'Transaction deja traitee' });
     }
     const codeRecharge = 'CODE-' + Date.now();
-    transactions.set(numero_transaction, { reference_client, montant_paye, telephone_payeur, timestamp, code_recharge, status: 'SUCCESS' });
+    transactions.set(numero_transaction, { reference_client, montant_paye, telephone_payeur, timestamp, code_recharge: codeRecharge, status: 'SUCCESS' });
     return res.json({ status: 'OK', code_recharge: codeRecharge, transaction_id: numero_transaction });
 });
 
